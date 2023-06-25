@@ -21,7 +21,7 @@ const Country = () => {
   
   return (
     <div className='A-country'>
-      {loading && <FontAwesomeIcon icon={faEarthAmerica} size='6x' beatFade color='yellow'/>}
+      {loading && <FontAwesomeIcon icon={faEarthAmerica} size='3x' beatFade color='navajowhite'/>}
       <Link to={'/'} className='A-link'>Back</Link>
       {Array.from(country).map((count) =>(
         <Fragment key={count.name.common} >
@@ -32,8 +32,9 @@ const Country = () => {
               <h1>Capital: <span className='sp1'>{count.capital}</span></h1>
               <h1>Continent: <span className='sp1'>{count.continents}</span></h1>
               <h1>Region: <span className='sp1'>{count.region}</span></h1>
-              <h1>Coat of Arms: <img src={count.coatOfArms.svg} alt='coat of arms' style={{width: 30, height: 20}}/></h1>
-              {/* <h1>Currency(ies):  {count.currencies.ISK.symbol}</h1> */}
+              {count.coatOfArms.svg !== undefined || count.coatOfArms.svg !== null ? 
+                (<h1>Coat of Arms: <img src={count.coatOfArms.svg} alt='coat of arms' style={{width: 30, height: 20}}/></h1>)
+                : (<h1>Coat of Arms Not Available</h1>) }
               <h1>Population: <span className='sp1'>{count.population}</span></h1>
             </div>            
           </div>

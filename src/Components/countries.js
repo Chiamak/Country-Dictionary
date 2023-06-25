@@ -9,6 +9,7 @@ const Countries = ({mode}) => {
     const[loading, setLoading] = useState(true);
     const[countries, setCountries] = useState([]);
     const[input, setInput] = useState('');
+    const[inputs, setInputs] = useState('');
     const[filtered, setFiltered] = useState([]);
 
 
@@ -27,7 +28,6 @@ const Countries = ({mode}) => {
     const onChange = (val) =>{
       // val.preventDefault();
       setInput(val);
-      // console.log(val);
 
       if(input){
         const filteredCountries = countries.filter((country)=>{
@@ -42,7 +42,7 @@ const Countries = ({mode}) => {
   }
 
   const handleChange = (vals) =>{
-    setInput(vals);
+    setInputs(vals);
     if(vals){
       const filterRegion = countries.filter((country)=>{
         return(
@@ -57,13 +57,13 @@ const Countries = ({mode}) => {
     
   return (
     <div className='Countries'>
-        <Searchfilter onChange={onChange} input={input} handleChange={handleChange}/>
+        <Searchfilter onChange={onChange} input={input} handleChange={handleChange} inputs={inputs}/>
             <div className='Countries-body'>
-              {loading && <FontAwesomeIcon icon={faEarthAmerica} size='6x' beatFade color='yellow'/>}
-              {input.length > 0 ? (
+              {loading && <FontAwesomeIcon icon={faEarthAmerica} size='3x' beatFade color='yellow'/>}
+              {input.length > 0 || inputs.length ? (
               Array.from(filtered).map((country) =>(
                 <Link to={`/${country.name.common}`} key={country.name.common} className='Linkin'>
-                  <div className='country' style={{ backgroundColor: mode ? 'red' : 'teal', color: mode ? 'beige' : 'black'}}>
+                  <div className='country' style={{ backgroundColor: mode ? 'navajowhite' : 'teal', color: mode ? 'red' : 'navajowhite'}}>
                     <img src={country.flags.png} alt={country.capital}/>
                     <h1>Country: <span className='sp'>{country.name.common}</span></h1>
                     <h1>Capital: <span className='sp'>{country.capital}</span></h1>
@@ -75,7 +75,7 @@ const Countries = ({mode}) => {
               )) : (
                 Array.from(countries).map((country) =>(
                   <Link to={`/${country.name.common}`} key={country.name.common}className='Linkin'>
-                    <div className='country' style={{ backgroundColor: mode ? 'red' : 'teal', color: mode ? 'beige' : 'black'}}>
+                    <div className='country' style={{ backgroundColor: mode ? 'navajowhite' : 'teal', color: mode ? 'red' : 'navajowhite'}}>
                       <img src={country.flags.png} alt={country.capital}/>
                       <h1>Country: <span className='sp'>{country.name.common}</span></h1>
                       <h1>Capital: <span className='sp'>{country.capital}</span></h1>

@@ -6,7 +6,7 @@ body.dark{
     background-color:teal ;
 }
 body.light{
-    background-color: beige;
+    background-color: navajowhite;
 }
 .App{
     padding: 25px;
@@ -14,17 +14,17 @@ body.light{
     height:13vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     box-shadow: inset 0 0 10px;
 }
 .App-title{
     display: flex;
     align-items: center;
-    width: 40%;
+    justify-content: center;
+    width: 100%;
 }
 .App-title h1{
     font-family:Rubik ;
-    font-size: 30px;
+    font-size: 50px;
 }
 .App-btn{
     width:max-content;
@@ -38,10 +38,15 @@ body.light{
     margin: 3% auto;
 }
 .Search-bar input{
+    all:unset;
     width:100%;
-    padding: 0.5%;  
+    padding: 1%;  
+    border:2px solid teal;
     border-radius: 5px;
     font-family: Rubik;
+    background-color: white;
+    color:gray;
+    font-size:12px;
 }
 .Search-bar select{
     width: 55%;
@@ -55,7 +60,6 @@ body.light{
     margin:0% auto;
     margin-top: 4%;
     display:flex;
-    flex-basis: 40%;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
@@ -72,6 +76,8 @@ body.light{
 .Countries-body img{
     width: 100%;
     height: 30vh;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .country h1{
     font-size: 18px;
@@ -81,7 +87,7 @@ body.light{
     padding: 3px 5px;
 }
 .country h1 .sp{
-    color: beige;
+    color: rgb(189, 7, 7);
     font-size: 15px;
     font-family: Rubik;
 }
@@ -92,33 +98,35 @@ body.light{
     text-decoration: none;
     font-size: 17px;
     margin: 0% 3%;
-    background-color: black;
+    background-color: navajowhite;
     border-radius: 5px;
     padding: 5px;
-    color:beige;
+    color:teal;
     width: max-content;
 }
 .A-country .A-section{
     width:90%;
-    height:60vh;
+    padding:5%;
+    box-sizing: border-box;
     margin:1% auto;
     display:flex;
     justify-content: space-evenly;
+    border-radius: 5px;
     align-items: center;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .A-section img{
     width:45%;
+    border-radius: 5px;
 }
 .A-country-details h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
 }
 .sp1{
-    color:red;
+    color:navajowhite;
 }
-@media only screen and (min-width: 300px) and (max-width: 700px) {
+@media all and (min-width: 300px) and (max-width: 1000px) {
     .App{
         width: 100%;
         /* box-sizing: border-box; */
@@ -126,23 +134,28 @@ body.light{
     .App-title h1{
         font-size: medium;
     }
+    .App-btn{
+        font-size: 8px;
+    }
     .Search-bar {
        padding: 0% 5%;
-    }
-    .Countries-body{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
     }
     .Countries-body .Linkin{
         width: 95%;
         margin:3%
     }
     .A-country .A-link{
-        font-size: 14px;
+        font-size: 10px;
         padding: 2px;
     }
     .A-country-details h1{
-        font-size: 16px;
+        font-size: 10px;
     }
-    
+    .A-country .A-section{
+        display:flex;
+        flex-direction: column;
+    }
+    .A-section img{
+        width:70%;
+    }
 }
